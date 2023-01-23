@@ -37,9 +37,18 @@
                     <a href="{{route('comics.show', $elem->id)}}">
                         <button type="button" class="btn btn-outline-info">Info</button>
                     </a>
+                </td>
+                <td>
                     <a href="{{route('comics.edit', $elem->id)}}">
                         <button type="button" class="btn btn-outline-warning">Edit</button>
                     </a>
+                </td>
+                <td>
+                    <form action="{{ route('comics.destroy', $elem->id) }}" method="post">
+                        @method('DELETE')
+                        @csrf
+                        <button class="btn btn-outline-danger">Delete</button>
+                    </form>
                 </td>
               </tr>
               @endforeach

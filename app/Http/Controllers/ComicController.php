@@ -53,7 +53,7 @@ class ComicController extends Controller
         $new_comic->fill($data);
         $new_comic->save();
 
-        return redirect()->route('comics.show', $new_comic->id );
+        return redirect()->route('comics.show', $new_comic->id )->with('success_create', true);
     }
 
     /**
@@ -88,16 +88,6 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        // $data = $request->all();
-
-        // $comic->city        = $data['city'];
-        // $comic->price       = $data['price'];
-        // $comic->street      = $data['street'];
-        // $comic->is_rent     = $data['is_rent'] ?? false;
-        // $comic->free_from   = $data['free_from'];
-        // $comic->rooms       = $data['rooms'];
-        // $comic->surface     = $data['surface'];
-        // $comic->update();
 
         $data = $request->all();
 
@@ -122,6 +112,8 @@ class ComicController extends Controller
      */
     public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+
+        return redirect()->route('comics.index')->with('success_delete', $comic->id);
     }
 }
