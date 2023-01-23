@@ -15,7 +15,7 @@
             <input class="form-control" type="text" name="thumb">
         </div>
         <div class="mb-3">
-            <label class="form-label" for="">Title</label>
+            <label class="form-label" for="">price</label>
             <input class="form-control" type="number" name="price">
         </div>
         <div class="mb-3">
@@ -28,7 +28,7 @@
         </div>
         <div class="mb-3">
             <label class="form-label" for="">Type</label>
-            <input class="form-control" type="text" name="Type">
+            <input class="form-control" type="text" name="type">
         </div>
         <button class="btn btn-outline-info" type="submit">Create</button>
     </form>
