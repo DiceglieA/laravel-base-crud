@@ -2,13 +2,17 @@
 
 @section('content')
     <div>
+        <a class="btn btn-outline-info" href="{{route('comics.create')}}">Create new Comic</a>
+    </div>
+
+    <div>
         <table class="table">
             <thead>
               <tr>
                 <th scope="col">#id</th>
                 <th scope="col">title</th>
                 {{-- <th scope="col">description</th> --}}
-                <th scope="col">thumb</th>
+                <th scope="col">image</th>
                 <th scope="col">price</th>
                 <th scope="col">series</th>
                 <th scope="col">sale_date</th>
@@ -25,7 +29,7 @@
                 <td>
                     <img src="{{ $elem->thumb}}" alt="{{ $elem->title}}">
                 </td>
-                <td>{{ $elem->price}}</td>
+                <td>€ {{ $elem->price}}</td>
                 <td>{{ $elem->series}}</td>
                 <td>{{ $elem->sale_date}}</td>
                 <td>{{ $elem->type}}</td>
@@ -38,5 +42,9 @@
               @endforeach
             </tbody>
           </table>
+
+          <div class="d-flex justify-content-center align-items-center">
+            {{$comics->links()}}
+          </div>
     </div>
 @endsection
