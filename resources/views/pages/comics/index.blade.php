@@ -37,6 +37,9 @@
                     <a href="{{route('comics.show', $elem->id)}}">
                         <button type="button" class="btn btn-outline-info">Info</button>
                     </a>
+                    <a href="{{route('comics.edit', $elem->id)}}">
+                        <button type="button" class="btn btn-outline-warning">Edit</button>
+                    </a>
                 </td>
               </tr>
               @endforeach

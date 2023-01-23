@@ -39,15 +39,15 @@ class ComicController extends Controller
     {
         $data = $request->all(); //
 
-        // $comic = new Comic;
-        // $comic->title           = $data['title'];
-        // $comic->description     = $data['description'];
-        // $comic->thumb           = $data['thumb'];
-        // $comic->price           = $data['price'] ?? false;
-        // $comic->series          = $data['series'];
-        // $comic->sale_date       = $data['sale_date'];
-        // $comic->type            = $data['type'];
-        // $comic->save();
+        // $new_comic = new Comic;
+        // $new_comic->title           = $data['title'];
+        // $new_comic->description     = $data['description'];
+        // $new_comic->thumb           = $data['thumb'];
+        // $new_comic->price           = $data['price'] ?? false;
+        // $new_comic->series          = $data['series'];
+        // $new_comic->sale_date       = $data['sale_date'];
+        // $new_comic->type            = $data['type'];
+        // $new_comic->save();
 
         $new_comic = new Comic();
         $new_comic->fill($data);
@@ -76,7 +76,7 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
-        //
+        return view('pages.comics.edit', compact('comic'));
     }
 
     /**
@@ -88,7 +88,30 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        //
+        // $data = $request->all();
+
+        // $comic->city        = $data['city'];
+        // $comic->price       = $data['price'];
+        // $comic->street      = $data['street'];
+        // $comic->is_rent     = $data['is_rent'] ?? false;
+        // $comic->free_from   = $data['free_from'];
+        // $comic->rooms       = $data['rooms'];
+        // $comic->surface     = $data['surface'];
+        // $comic->update();
+
+        $data = $request->all();
+
+        $comic->title           = $data['title'];
+        $comic->description     = $data['description'];
+        $comic->thumb           = $data['thumb'];
+        $comic->price           = $data['price'];
+        $comic->series          = $data['series'];
+        $comic->sale_date       = $data['sale_date'];
+        $comic->type            = $data['type'];
+        $comic->update();
+
+
+        return redirect()->route('comics.show', ['comic' => $comic]);
     }
 
     /**
